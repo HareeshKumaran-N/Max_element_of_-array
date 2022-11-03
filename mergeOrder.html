@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+      Array Practise 
+
+</body>
+</html>
+<script>
+
+const users = [
+    {
+      id: 1,
+      name: "Ankit Jain",
+    },
+    {
+      id: 2,
+      name: "Shankar Sahu",
+    },
+    {
+      id: 3,
+      name: "Akash Kushwaha",
+    },
+  ];
+  
+  const orders = [
+    {
+      orderId: 101,
+      userId: 1,
+      productId: 123,
+      productName: "Apple iPhone 14 Pro Max",
+    },
+    {
+      orderId: 102,
+      userId: 1,
+      productId: 124,
+      productName: "Apple MacBook Pro",
+    },
+    {
+      orderId: 103,
+      userId: 1,
+      productId: 125,
+      productName: "Apple iWatch 7 series",
+    },
+    {
+      orderId: 104,
+      userId: 2,
+      productId: 126,
+      productName: "Samsung S22",
+    },
+  ];
+  
+
+//Expected Output
+
+//   const final = [
+//     {
+//       userId: 1,
+//       userName: "Ankit Jain",
+//       orders: [
+//         {
+//           orderId: 101,
+//           productId: 123,
+//           productName: "Apple iPhone 14 Pro Max",
+//         },
+//         {
+//           orderId: 102,
+//           productId: 124,
+//           productName: "Apple MacBook Pro",
+//         },
+//         {
+//           orderId: 103,
+//           productId: 125,
+//           productName: "Apple iWatch 7 series",
+//         },
+//       ],
+//     },
+//     {
+//       userId: 2,
+//       userName: "Shankar Sahu",
+//       orders: [
+//         {
+//           orderId: 104,
+//           userId: 2,
+//           productId: 126,
+//           productName: "Samsung S22",
+//         },
+//       ],
+//     },
+//     {
+//       userId: 3,
+//       userName: "Akash Kushwaha",
+//       orders: [],
+//     },
+//   ];
+  
+
+
+console.log("Using reduce method",Description(users,orders));
+
+function Description(users,orders)
+{
+    let result_array=[];
+
+    for(let i=0;i<users.length;i++)
+    {
+        let userDescription={};
+      
+        let user_order=[];
+        for(let j=0;j<orders.length;j++)
+        {      
+               
+          
+              if(users[i].id===orders[j].userId)
+              {
+                 let{userId,...restObj}= orders[j];
+                //  console.log(restObj);
+                user_order.push(restObj);
+              }
+        }
+
+        userDescription.userId=users[i].id;
+        userDescription.userName=users[i].name;
+        userDescription.orders=user_order;
+
+        result_array.push(userDescription);
+    }
+
+    return result_array;
+}
+
+
+</script>
