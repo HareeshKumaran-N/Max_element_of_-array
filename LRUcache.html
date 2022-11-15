@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ 
+    LRU Cache
+
+</body>
+</html>
+<script>
+
+
+
+// add add apple : ["apple"]
+// add add samsung : ["apple", "samsung"]
+// add add lg : ["apple", "samsung", "lg"]
+// add add apple : [ "samsung", "lg", "apple"]
+// add add mi : [ "samsung", "lg", "apple", "mi"]
+// add add google : [ "lg", "apple", "mi", "google"]
+
+
+/*
+
+
+1.  if array_size is length<limit and does not contain the particular value.
+     add the item push()
+
+ 2.  else if array_size<limit and do have the element already
+      remove the old element and just add the item.
+
+3.  else if  array_size ===limit and does not contain item 
+        shift() and push the item to array. 
+
+4.  else if  array_size ===limit and does contain item 
+        remove the old element and just add the item.     
+  
+ 
+
+     
+*/
+
+
+const productList = [];
+const limit = 4;
+
+
+
+function addItem(item)
+{
+
+if(productList.length<limit  && (!productList.includes(item))) 
+{   
+      productList.push(item);
+}
+else if(productList.length<limit && (!productList.includes(item)))
+{
+     let current_index=productList.indexOf(item);
+     productList.splice(current_index,1);
+     productList.push(item);    
+}
+else if(productList.length===limit && (!productList.includes(item)))
+{
+      productList.shift();
+      productList.push(item);
+}
+else
+{
+     let current_index=productList.indexOf(item);
+     productList.splice(current_index,1);
+     productList.push(item); 
+}
+
+
+
+console.log(productList);
+productList
+}
+
+
+
+</script>
+
+
+
