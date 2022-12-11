@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    
+// Create a Map
+const products = new Map();
+const maxSize = 4;
+
+const addElement = (elem) => {
+  const hasElem = products.get(elem);//returns true
+  if (hasElem)
+   {
+    products.delete(elem); // 3, 1,2,4
+    products.set(elem, elem); // added 3 again
+    return;
+  }
+
+  // If not present but max filled
+  if (products.size === maxSize) {
+    products.delete(products.keys().next().value);
+    products.set(elem, elem);
+    return;
+  }
+
+  products.set(elem, elem);
+};
+
+const getQueue = () => {
+  return products.values();
+};
+</script>
