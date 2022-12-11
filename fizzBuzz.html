@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+/* Write a program that prints the numbers from 1 to 100. But for multiples of three, print "Fizz" instead of the number, and for the multiples of five,
+print "Buzz". For numbers which are multiples of both three and five, print "FizzBuzz"*/
+
+  /*
+  Algorithm:
+
+   >>Itrerate a loop which starts from 1 to 100
+   >>On each iteration chech whether the number's type Fizz,buzz or FizzBuzz.
+   >>This checking is done with a help of function, which takes the number as parameter and returns its type.
+
+       
+  */     
+
+
+
+ function checkType(num)
+ {
+     if(num%5===0 && num%3===0)
+        return "FizzBuzz";
+    
+   if (num%5===0)
+    return "Buzz";
+    
+   if (num%3===0)
+    return "Fizz"
+    
+
+    return num;
+ }
+
+
+ for(let i=1;i<100;i++)
+ {
+    console.log(checkType(i))
+ }
+
+
+</script>
