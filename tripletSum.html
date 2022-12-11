@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+let  array = [12, 3, 4, 1, 6, 9], sum = 24;
+console.log(tripletSumV2(array,sum))
+
+function tripletSumV2(arr,sum)
+{
+  for(let i=0;i<arr.length-2;i++)
+  {
+  
+   for(let j=i+1;j<arr.length;j++)
+   {
+    
+    let diff=sum-(arr[i]+arr[j]);
+  
+   
+   }
+  
+ }
+}
+
+
+function tripletSumV1(arr,sum)
+{
+    if(arr.length>3 && Array.isArray(arr))
+    {
+    for(let i=0;i<arr.length-2;i++)
+    {
+        for(let j=i+1;j<arr.length-1;j++)
+        {
+            for(let k=j+1;k<arr.length;k++)
+            {
+             
+                // console.log(arr[i]+arr[j]+arr[k]);
+                   if((arr[i]+arr[j]+arr[k])===sum )
+                    { 
+                    return [arr[i],arr[j],arr[k]];
+                    }
+            }
+        }
+    }
+   }
+
+    return "No triplet found"
+}
+</script>
