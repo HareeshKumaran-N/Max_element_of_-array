@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    LRU using Object
+</body>
+</html>
+<script>
+const products ={};
+const maxSize = 4;
+
+const addElement=(item)=>{
+
+    if(products.hasOwnProperty(item))
+    {
+        
+       delete products[item];
+       products[item]=item;
+       console.log(products);
+       return
+    }
+     
+    if(Object.keys(products).length===maxSize)
+    {
+           let keySet=Object.keys(products);
+           delete products[keySet[0]];
+           products[item]=item;
+           console.log(products);
+           return;
+    }
+ 
+     products[item]=item;
+     console.log(products);
+
+}
+
+
+</script>
