@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3 id="header">Polyfill for document.getElementById</h3>
+   
+  
+    <div id="outerA">
+   
+      <div id="outerA-inner1"></div>
+   
+      </div>
+
+      <div id="outerB">
+        <div id="outerB-inner1"></div>
+        <div id="outerB-inner2">  <div id="outerB-inner2.1"><div><div><div id="deep"></div></div></div></div>
+      </div>
+
+      <div id="outerC">
+     <div id="outerC-inner1"></div>
+      </div>
+
+    
+</body>
+<script>
+      
+function getElementById(identity)    
+{    
+   
+    
+     
+    let Body=document.body.children;
+
+    //input's edge case handled over here
+    if(identity && identity.length>0){
+
+        var result=traverseNode(Body);
+
+    }
+    else{
+
+      return "Invalid input";
+  
+    }
+
+
+
+      function traverseNode(Node)
+      {
+      
+            let arr=Node;
+            // console.log("New Entry",arr);
+        
+                  for(let i=0;i<arr.length;i++)
+                  {
+                       if(arr[i].id===identity)
+                       {
+                        // console.log("Found",arr[i]);
+                        return arr[i];
+                       }
+                       else if(arr[i].children.length>0)
+                      {
+                              let result=traverseNode(arr[i].children);
+                              if(result)
+                              return result;
+
+                      }
+                           
+                    }
+      return false; 
+
+     }
+
+    return (result)?result: "Not found";
+    
+}  
+ 
+  
+
+console.log("@HK", getElementById("outerC-inner1"));
+    
+    </script>
+</html>
